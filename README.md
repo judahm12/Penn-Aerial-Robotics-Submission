@@ -10,6 +10,8 @@ static image in `/content/sample_data/`. Run cells in order:
 
 Requires `opencv-python` and `numpy`, both preinstalled in Colab.
 
+
+## Writeup
 Step 1:
 I began step 1 by observing how the shapes differ from the background. I found that the shapes are solid colors, while the texture of the grass changes rapidly. I first made a mask to detect grass, and I iterated through known patches of grass to collect HSV data. In looking at the mean and variance of hue, saturation, and value for the grass data, I found that hue was lower variance than saturation and value, so I used hue as the primary signal to differentiate between grass and shapes. This successfully detected all of the shapes except the circle and the triangle, which share a similar hue to the grass. I realized I could use the grass’s high saturation variance to my advantage, and I created a second mask based on local saturation variance. 
 After plotting the initial mask, I found that there was some noise left in the background, so I applied the opening algorithm to delete the erroneous blobs and fill back the holes that were formed in the shapes. My final mask included pixels that were either not grass, or labeled as grass but had low saturation variance—intended to rescue the green and yellow shapes. Then, I computed the contours and filtered the contours to be greater than an area threshold. Lastly, I filtered the points within the contours to discard vertices that lay within epsilon of the chord drawn between their neighbors. This allowed me to preserve only the corners of shapes. Finally, I calculated the centroids and added text.
