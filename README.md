@@ -1,4 +1,14 @@
 # Penn-Aerial-Robotics-Submission
+## Running the code
+
+Open `pennair_2024.ipynb` in Google Colab. Place the provided videos and
+static image in `/content/sample_data/`. Run cells in order:
+
+- Cells 1-3: Part 1 static image (grass background)
+- Cell 4: Part 2 video (grass background)
+- Cell 5: Parts 3 and 4 (gravel background with 3D coordinates)
+
+Requires `opencv-python` and `numpy`, both preinstalled in Colab.
 
 Step 1:
 I began step 1 by observing how the shapes differ from the background. I found that the shapes are solid colors, while the texture of the grass changes rapidly. I first made a mask to detect grass, and I iterated through known patches of grass to collect HSV data. In looking at the mean and variance of hue, saturation, and value for the grass data, I found that hue was lower variance than saturation and value, so I used hue as the primary signal to differentiate between grass and shapes. This successfully detected all of the shapes except the circle and the triangle, which share a similar hue to the grass. I realized I could use the grass’s high saturation variance to my advantage, and I created a second mask based on local saturation variance. 
