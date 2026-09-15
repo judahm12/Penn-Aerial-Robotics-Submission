@@ -18,6 +18,10 @@ Requires `opencv-python` and `numpy`, both preinstalled in Colab.
 ## Part 1 - Static image, grass background
 <img width="960" height="540" alt="picture thing" src="https://github.com/user-attachments/assets/2455b45e-565a-4b1a-b98c-e0d7c2af7b38" />
 
+## Part 2 - video, grass background
+https://github.com/user-attachments/assets/b57984c4-70f5-43f4-b60e-7effce839468
+
+
 
 ### Parts 3 & 4 — gravel background with 3D coordinates
 
