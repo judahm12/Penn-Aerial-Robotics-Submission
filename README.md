@@ -13,7 +13,7 @@ Requires `opencv-python` and `numpy`, both preinstalled in Colab.
 
 
 
-## Results
+# Results
 
 ## Part 1 - Static image, grass background
 <img width="960" height="540" alt="picture thing" src="https://github.com/user-attachments/assets/2455b45e-565a-4b1a-b98c-e0d7c2af7b38" />
