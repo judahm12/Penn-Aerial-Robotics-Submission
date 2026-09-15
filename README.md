@@ -11,6 +11,16 @@ static image in `/content/sample_data/`. Run cells in order:
 Requires `opencv-python` and `numpy`, both preinstalled in Colab.
 
 
+
+
+## Results
+
+### Parts 3 & 4 — gravel background with 3D coordinates
+
+https://github.com/user-attachments/assets/bca279a4-f347-4a6b-8d7e-488c2c1ec985
+
+
+
 ## Writeup
 Step 1:
 I began step 1 by observing how the shapes differ from the background. I found that the shapes are solid colors, while the texture of the grass changes rapidly. I first made a mask to detect grass, and I iterated through known patches of grass to collect HSV data. In looking at the mean and variance of hue, saturation, and value for the grass data, I found that hue was lower variance than saturation and value, so I used hue as the primary signal to differentiate between grass and shapes. This successfully detected all of the shapes except the circle and the triangle, which share a similar hue to the grass. I realized I could use the grass’s high saturation variance to my advantage, and I created a second mask based on local saturation variance. 
